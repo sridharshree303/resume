@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolluru Sreedhar — Senior Software Engineer</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --accent-light: #ebf4ff;
+            --text: #2d3748;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --bg: #ffffff;
+            --tag-bg: #edf2f7;
+            --success: #38a169;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: #f7fafc;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        /* ── Header ── */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #fff;
+            padding: 48px 48px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+
+        .header .subtitle {
+            font-size: 1.05rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 24px;
+            font-size: 0.9rem;
+        }
+
+        .contact-row a {
+            color: #bee3f8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-row a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-item svg {
+            width: 16px;
+            height: 16px;
+            fill: #bee3f8;
+            flex-shrink: 0;
+        }
+
+        /* ── Main body ── */
+        .body {
+            padding: 40px 48px 48px;
+        }
+
+        /* ── Sections ── */
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        /* ── Summary ── */
+        .summary {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        .summary strong {
+            color: var(--primary);
+        }
+
+        /* ── Skills Grid ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .skill-group {
+            background: var(--accent-light);
+            border-radius: 8px;
+            padding: 14px 18px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .skill-group h4 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            background: #fff;
+            color: var(--text);
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            font-weight: 500;
+        }
+
+        /* ── Experience ── */
+        .job {
+            margin-bottom: 28px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .job::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .job::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 22px;
+            width: 2px;
+            height: calc(100% - 18px);
+            background: var(--border);
+        }
+
+        .job:last-child::after {
+            display: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .job-company {
+            font-size: 0.92rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .job-company span {
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .job ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job li {
+            font-size: 0.88rem;
+            padding: 4px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .job li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .job li strong {
+            color: var(--primary);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(43,108,176,0.08) 0%, rgba(43,108,176,0.03) 100%);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* ── Achievements ── */
+        .achievement {
+            display: flex;
+            gap: 14px;
+            padding: 14px 18px;
+            background: var(--accent-light);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .achievement-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .achievement-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .achievement-text strong {
+            color: var(--primary);
+        }
+
+        /* ── Certifications ── */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.87rem;
+            padding: 10px 14px;
+            background: #fafafa;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .cert-item svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--success);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .cert-source {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ── Education ── */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .edu-item {
+            padding: 16px 20px;
+            background: var(--accent-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.92rem;
+            margin-bottom: 2px;
+        }
+
+        .edu-field {
+            font-size: 0.88rem;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .edu-school {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        /* ── Print Styles ── */
+        @media print {
+            body { background: #fff; }
+            .container { box-shadow: none; }
+            .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .section { break-inside: avoid; }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 700px) {
+            .header { padding: 32px 24px 28px; }
+            .header h1 { font-size: 1.6rem; }
+            .body { padding: 28px 24px 36px; }
+            .skills-grid,
+            .cert-grid,
+            .edu-grid { grid-template-columns: 1fr; }
+            .job-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ════════════ HEADER ════════════ -->
+    <header class="header">
+        <h1>KOLLURU SREEDHAR</h1>
+        <div class="subtitle">Senior Software Engineer &nbsp;|&nbsp; Full-Stack &nbsp;|&nbsp; Distributed Systems &nbsp;|&nbsp; Cloud-Native Architecture</div>
+        <div class="contact-row">
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.66 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+                +91-8465099179
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:Sridharkolluru303@gmail.com">Sridharkolluru303@gmail.com</a>
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="#">LinkedIn</a>
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.509 11.509 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <a href="#">GitHub</a>
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <a href="#">LeetCode</a>
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                Hyderabad, India
+            </span>
+        </div>
+    </header>
+
+    <div class="body">
+
+        <!-- ════════════ SUMMARY ════════════ -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Results-driven Senior Software Engineer with <strong>4.7+ years</strong> of experience designing, building, and delivering
+                <strong>high-scale distributed systems</strong> processing millions of transactions across global supply chain platforms.
+                Deep expertise in <strong>Java, Spring Boot, Microservices, Event-Driven Architecture (Kafka), and React.js</strong>,
+                with a proven track record of reducing system latency, improving API throughput, and strengthening platform security.
+                Experienced in end-to-end feature ownership — from system design (HLD/LLD) through CI/CD deployment — with strong
+                cross-functional collaboration across US and India teams. Accelerates delivery velocity by leveraging
+                <strong>AI-assisted development tools</strong> (GitHub Copilot, Cursor AI, Claude AI).
+            </p>
+        </section>
+
+        <!-- ════════════ SKILLS ════════════ -->
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">J2EE</span>
+                        <span class="tag">JavaScript (ES6+)</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Backend Frameworks</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">Spring MVC</span>
+                        <span class="tag">Spring Security</span>
+                        <span class="tag">Struts</span>
+                        <span class="tag">JPA</span>
+                        <span class="tag">Hibernate</span>
+                        <span class="tag">JUnit</span>
+                        <span class="tag">JMS</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Frontend</h4>
+                    <div class="skill-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JSP</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>API &amp; Integration</h4>
+                    <div class="skill-tags">
+                        <span class="tag">RESTful APIs</span>
+                        <span class="tag">JSON</span>
+                        <span class="tag">XML</span>
+                        <span class="tag">Axios</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Databases</h4>
+                    <div class="skill-tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Oracle SQL</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Messaging &amp; Search</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Apache Kafka</span>
+                        <span class="tag">Elasticsearch</span>
+                        <span class="tag">Kibana</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Cloud &amp; DevOps</h4>
+                    <div class="skill-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Bitbucket</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">CI/CD</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>AI Dev Tools</h4>
+                    <div class="skill-tags">
+                        <span class="tag">GitHub Copilot</span>
+                        <span class="tag">Cursor AI</span>
+                        <span class="tag">Claude AI</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Architecture &amp; Design</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Microservices</span>
+                        <span class="tag">Event-Driven</span>
+                        <span class="tag">Design Patterns</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">LLD</span>
+                        <span class="tag">HLD</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>Methodologies</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Agile / Scrum</span>
+                        <span class="tag">SDLC</span>
+                        <span class="tag">TDD</span>
+                        <span class="tag">Code Reviews</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ EXPERIENCE ════════════ -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <!-- Job 1 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Senior Software Engineer</span>
+                    <span class="job-date">Aug 2023 – Present</span>
+                </div>
+                <div class="job-company">E2open Software India Pvt. Ltd. — R&amp;D <span>| Hyderabad, India</span></div>
+                <ul>
+                    <li><strong>Architected event-driven microservices</strong> for the Transportation Management System (TMS), enabling <span class="highlight">high-throughput, low-latency</span> data exchange across Ocean and Road logistics modules serving global supply chain operations.</li>
+                    <li><strong>Designed and built 15+ RESTful APIs</strong> with decoupled service interfaces, improving modularity and reducing cross-team integration time by <span class="highlight">~30%</span>.</li>
+                    <li><strong>Strengthened platform security</strong> by implementing concurrent login controls and secure API key generation, achieving compliance with <strong>OWASP Top 10</strong> security standards — zero critical vulnerabilities in production.</li>
+                    <li><strong>Built observability infrastructure</strong> using Elasticsearch and Kibana dashboards; configured <strong>ML-based anomaly detection jobs</strong> that reduced mean-time-to-detection (MTTD) of production issues by <span class="highlight">40%</span>.</li>
+                    <li><strong>Led Agile ceremonies</strong> (sprint planning, retrospectives) and conducted <strong>50+ code reviews</strong>, mentoring 3 junior engineers on design patterns and best practices.</li>
+                    <li><strong>Accelerated development velocity by <span class="highlight">~25%</span></strong> by integrating GitHub Copilot, Cursor AI, and Claude AI into the development workflow for intelligent code generation, debugging, and unit test creation.</li>
+                    <li><strong>Collaborated with cross-functional teams</strong> across US and India, driving end-to-end feature development from design through deployment with zero rollback incidents.</li>
+                    <li>Performed comprehensive <strong>functional and end-to-end testing</strong>, ensuring production-grade quality for all feature releases.</li>
+                </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Software Engineer</span>
+                    <span class="job-date">Oct 2021 – Jul 2023</span>
+                </div>
+                <div class="job-company">Capgemini Technology Services <span>| Chennai &amp; Hyderabad, India</span></div>
+                <ul>
+                    <li><strong>Developed scalable backend services</strong> using Spring Framework and REST APIs for banking and insurance web applications, following SDLC best practices and SOLID design principles.</li>
+                    <li><strong>Built reusable React.js component library</strong> (10+ components) integrated with RESTful services via Axios, delivering responsive, accessible user interfaces and reducing frontend development effort by <span class="highlight">~20%</span>.</li>
+                    <li><strong>Led cross-platform mobile app development</strong> using React Native and Expo, shipping to both iOS and Android with consistent UX and performance.</li>
+                    <li><strong>Participated in production support rotations</strong>, performing root cause analysis and debugging to maintain <span class="highlight">99.5%+ application uptime</span>.</li>
+                    <li>Contributed to <strong>code reviews and knowledge-sharing sessions</strong>, improving team code quality and onboarding efficiency.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ════════════ ACHIEVEMENTS ════════════ -->
+        <section class="section">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="achievement">
+                <span class="achievement-icon">🌐</span>
+                <div class="achievement-text">
+                    <strong>Global Architecture Collaboration</strong> — Holds valid <strong>US B1/B2 Visa (valid through Sep 2035)</strong>;
+                    traveled for strategic architecture discussions on Cloud Logistics Product with architects, product managers, and stakeholders.
+                </div>
+            </div>
+            <div class="achievement">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-text">
+                    <strong>E2open Hackathon 2023 Semi-Finalist</strong> — Recognized for rapid prototyping and innovative problem-solving under time constraints.
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ CERTIFICATIONS ════════════ -->
+        <section class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div>
+                        <div class="cert-name">Software Development Program</div>
+                        <div class="cert-source">Scaler Academy — Computer Science</div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div>
+                        <div class="cert-name">AWS Cloud Practitioner Essentials</div>
+                        <div class="cert-source">Coursera</div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div>
+                        <div class="cert-name">Microsoft Azure Fundamentals (AZ-900)</div>
+                        <div class="cert-source">Microsoft</div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div>
+                        <div class="cert-name">Agile Software Development &amp; Jira (Scrum)</div>
+                        <div class="cert-source">Coursera</div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div>
+                        <div class="cert-name">Jenkins: Automating Delivery Pipeline</div>
+                        <div class="cert-source">Coursera</div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div>
+                        <div class="cert-name">Java Programming Specialization</div>
+                        <div class="cert-source">Duke University — Coursera</div>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div>
+                        <div class="cert-name">Vibe Coding with Cursor AI</div>
+                        <div class="cert-source">Coursera</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ EDUCATION ════════════ -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-grid">
+                <div class="edu-item">
+                    <div class="edu-degree">Bachelor of Technology</div>
+                    <div class="edu-field">Mechanical Engineering</div>
+                    <div class="edu-school">SITE, JNTUA University &nbsp;|&nbsp; 2016 – 2019</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-degree">Diploma</div>
+                    <div class="edu-field">Mechanical Engineering</div>
+                    <div class="edu-school">SVGP, SV University &nbsp;|&nbsp; 2012 – 2015</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>
